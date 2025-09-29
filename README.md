@@ -1,3 +1,9 @@
+Claro\! Adicionei uma nova seção chamada "CONTRIBUTING" com um link clicável para o arquivo `CONTRIBUTING.md`, conforme solicitado.
+
+Aqui está o `README.md` completo e atualizado:
+
+-----
+
 # Trabalho A1 P1 de Construção de Backend - Tema Futebol
 
 ## 📖 Descrição
@@ -8,13 +14,19 @@ Este trabalho foi desenvolvido para a disciplina de Construção de Backend.
 
 ## 👥 Alunos e Contribuições
 
-| Aluno(a)                              | GitHub                                                                              | Funcionalidade                                               |
-| :------------------------------------ | :---------------------------------------------------------------------------------- | :----------------------------------------------------------- |
-| Álvaro Matheus Alves da Silva         | [alvarotheuzin](https://www.google.com/search?q=https://github.com/alvarotheuszin) | Criação e implementação da funcionalidade de **Jogadores**   |
-| Giovanna Martins Soares               | [blackinha](https://www.google.com/search?q=https://github.com/blackinha)           | Criação e implementação da funcionalidade de **Times**       |
-| João Victor Pereira de Souza          | [JoaooVictor27](https://www.google.com/search?q=https://github.com/JoaooVictor27)   | Criação e implementação da funcionalidade de **Campeonatos** |
-| Maria Fernanda Santos Lima de Almeida | [fe705](https://www.google.com/search?q=https://github.com/fe705)                   | Criação e implementação da funcionalidade de **Técnicos**    |
-| Pedro Victor Lopes de Souza           | [Crowzito](https://www.google.com/search?q=https://github.com/Crowzito)             | Criação e implementação da funcionalidade de **Partidas**    |
+| Aluno(a) | GitHub | Funcionalidade |
+| :--- | :--- | :--- |
+| Álvaro Matheus Alves da Silva | [alvarotheuszin](https://www.google.com/search?q=https://github.com/alvarotheuszin) | Criação e implementação da funcionalidade de **Jogadores** |
+| Giovanna Martins Soares | [blackinha](https://www.google.com/search?q=https://github.com/blackinha) | Criação e implementação da funcionalidade de **Times** |
+| João Victor Pereira de Souza | [JoaooVictor27](https://www.google.com/search?q=https://github.com/JoaooVictor27) | Criação e implementação da funcionalidade de **Campeonatos** |
+| Maria Fernanda Santos Lima de Almeida| [fe705](https://www.google.com/search?q=https://github.com/fe705) | Criação e implementação da funcionalidade de **Técnicos** |
+| Pedro Victor Lopes de Souza | [Crowzito](https://www.google.com/search?q=https://github.com/Crowzito) | Criação e implementação da funcionalidade de **Partidas** |
+
+## 🤝 CONTRIBUTING
+
+Para detalhes sobre como contribuir com este projeto, seguir nosso fluxo de trabalho e padrões de commit, por favor, leia o guia de contribuição.
+
+➡️ **[CONTRIBUTING.md](https://www.google.com/search?q=CONTRIBUTING.md)**
 
 ## 🚀 Como Rodar o Projeto
 
@@ -52,30 +64,30 @@ Abaixo estão os endpoints disponíveis para cada funcionalidade.
 
 ### Times (`/times`)
 
-- `GET /times`: Lista todos os times.
-- `POST /times`: Cria um novo time.
-- ...
+  - `GET /times`: Lista todos os times.
+  - `POST /times`: Cria um novo time.
+  - ...
 
 ### Jogadores (`/jogadores`)
 
-- `GET /jogadores`: Lista todos os jogadores.
-- `POST /jogadores`: Cria um novo jogador.
-- ...
+  - `GET /jogadores`: Lista todos os jogadores.
+  - `POST /jogadores`: Cria um novo jogador.
+  - ...
 
 ### Campeonatos (`/campeonatos`)
 
-- `GET /campeonatos`: Lista todos os campeonatos.
-- `POST /campeonatos`: Cria um novo campeonato.
-- ...
+  - `GET /campeonatos`: Lista todos os campeonatos.
+  - `POST /campeonatos`: Cria um novo campeonato.
+  - ...
 
 ### Técnicos (`/tecnicos`)
 
-- `GET /tecnicos`: Lista todos os técnicos.
-- `POST /tecnicos`: Cria um novo técnico.
-- ...
+  - `GET /tecnicos`: Lista todos os técnicos.
+  - `POST /tecnicos`: Cria um novo técnico.
+  - ...
 
 ### Partidas (`/partidas`)
 
-- `GET /partidas`: Lista todas as partidas.
-- `POST /partidas`: Cria uma nova partida.
-- ...
+  - `GET /partidas`: Lista todas as partidas.
+  - `POST /partidas`: Cria uma nova partida.
+  - ...
