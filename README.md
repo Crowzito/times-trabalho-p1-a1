@@ -10,7 +10,7 @@ Este trabalho foi desenvolvido para a disciplina de Construção de Backend.
 
 | Aluno(a)                              | GitHub                                                                              | Funcionalidade                                               |
 | :------------------------------------ | :---------------------------------------------------------------------------------- | :----------------------------------------------------------- |
-| Álvaro Matheus Alves da Silva         | [alvarotheuszin](https://www.google.com/search?q=https://github.com/alvarotheuszin) | Criação e implementação da funcionalidade de **Jogadores**   |
+| Álvaro Matheus Alves da Silva         | [alvarotheuzin](https://www.google.com/search?q=https://github.com/alvarotheuszin) | Criação e implementação da funcionalidade de **Jogadores**   |
 | Giovanna Martins Soares               | [blackinha](https://www.google.com/search?q=https://github.com/blackinha)           | Criação e implementação da funcionalidade de **Times**       |
 | João Victor Pereira de Souza          | [JoaooVictor27](https://www.google.com/search?q=https://github.com/JoaooVictor27)   | Criação e implementação da funcionalidade de **Campeonatos** |
 | Maria Fernanda Santos Lima de Almeida | [fe705](https://www.google.com/search?q=https://github.com/fe705)                   | Criação e implementação da funcionalidade de **Técnicos**    |
