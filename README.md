@@ -1,9 +1,3 @@
-Claro\! Adicionei uma nova seção chamada "CONTRIBUTING" com um link clicável para o arquivo `CONTRIBUTING.md`, conforme solicitado.
-
-Aqui está o `README.md` completo e atualizado:
-
------
-
 # Trabalho A1 P1 de Construção de Backend - Tema Futebol
 
 ## 📖 Descrição
@@ -24,9 +18,9 @@ Este trabalho foi desenvolvido para a disciplina de Construção de Backend.
 
 ## 🤝 CONTRIBUTING
 
-Para detalhes sobre como contribuir com este projeto, seguir nosso fluxo de trabalho e padrões de commit, por favor, leia o guia de contribuição.
+Para detalhes sobre como contribuir com este projeto, seguir nosso fluxo de trabalho e padrões de commit, por favor, leia nosso guia de contribuição.
 
-➡️ **[CONTRIBUTING.md](https://www.google.com/search?q=CONTRIBUTING.md)**
+➡️ **[CONTRIBUTING.md](CONTRIBUTING.md)**
 
 ## 🚀 Como Rodar o Projeto
 
