@@ -2,7 +2,7 @@
   "name": "times-trabalho-p1-a1",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "nodemon index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,5 +17,13 @@
   "bugs": {
     "url": "https://github.com/Crowzito/times-trabalho-p1-a1/issues"
   },
-  "homepage": "https://github.com/Crowzito/times-trabalho-p1-a1#readme"
+  "homepage": "https://github.com/Crowzito/times-trabalho-p1-a1#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "jest": "^30.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
 }
