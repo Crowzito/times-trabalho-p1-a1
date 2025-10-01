@@ -16,7 +16,7 @@ const Campeonatos = require("./routes/campeonatos");
 const Jogadores = require("./routes/jogadores");
 const Partidas = require("./routes/partidas");
 const Tecnicos = require("./routes/tecnicos");
-const timesRouter = require("./routes/times");
+const { timesRouter } = require("./routes/times");
 
 app.use(Campeonatos);
 app.use(Jogadores);

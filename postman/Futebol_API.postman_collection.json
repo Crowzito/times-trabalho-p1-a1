@@ -1,0 +1,532 @@
+{
+  "info": {
+    "_postman_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "name": "API Futebol - Trabalho Backend",
+    "description": "Coleção completa para testar a API de gerenciamento de futebol, incluindo Times, Jogadores, Partidas, Técnicos e Campeonatos.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Times",
+      "item": [
+        {
+          "name": "Listar Todos os Times",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/times",
+              "host": ["{{baseUrl}}"],
+              "path": ["times"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar Time por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/times/{{timeId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["times", "{{timeId}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Criar Novo Time",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nome\": \"Corinthians\",\n    \"anoFundacao\": \"1910\",\n    \"cidadeSede\": \"São Paulo\",\n    \"estadio\": \"Neo Química Arena\",\n    \"titulosImportantes\": [\"Mundial de Clubes\", \"Copa Libertadores\"]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/times",
+              "host": ["{{baseUrl}}"],
+              "path": ["times"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Atualizar Time",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nome\": \"SC Corinthians Paulista\",\n    \"anoFundacao\": \"1910\",\n    \"cidadeSede\": \"São Paulo\",\n    \"estadio\": \"Neo Química Arena\",\n    \"titulosImportantes\": [\"Mundial de Clubes (2000, 2012)\", \"Copa Libertadores (2012)\"]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/times/{{timeId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["times", "{{timeId}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Excluir Time",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/times/{{timeId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["times", "{{timeId}}"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Jogadores",
+      "item": [
+        {
+          "name": "Listar Todos os Jogadores",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/jogadores",
+              "host": ["{{baseUrl}}"],
+              "path": ["jogadores"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar Jogador por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/jogadores/{{jogadorId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["jogadores", "{{jogadorId}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Criar Novo Jogador",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nome\": \"Cássio Ramos\",\n    \"posicao\": \"Goleiro\",\n    \"numeroCamisa\": 12,\n    \"nacionalidade\": \"Brasileira\",\n    \"dataNascimento\": \"1987-06-06\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/jogadores",
+              "host": ["{{baseUrl}}"],
+              "path": ["jogadores"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Atualizar Jogador",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nome\": \"Cássio Ramos\",\n    \"posicao\": \"Goleiro\",\n    \"numeroCamisa\": 1,\n    \"nacionalidade\": \"Brasileira\",\n    \"dataNascimento\": \"1987-06-06\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/jogadores/{{jogadorId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["jogadores", "{{jogadorId}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Excluir Jogador",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/jogadores/{{jogadorId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["jogadores", "{{jogadorId}}"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Partidas",
+      "item": [
+        {
+          "name": "Listar Todas as Partidas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/partidas",
+              "host": ["{{baseUrl}}"],
+              "path": ["partidas"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar Partida por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/partidas/{{partidaId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["partidas", "{{partidaId}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Criar Nova Partida",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"data\": \"2025-12-10\",\n    \"local\": \"Estádio Maracanã\",\n    \"timeCasa\": \"101\",\n    \"timeVisitante\": \"102\",\n    \"placarCasa\": 0,\n    \"placarVisitante\": 0\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/partidas",
+              "host": ["{{baseUrl}}"],
+              "path": ["partidas"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Atualizar Partida (Placar)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"data\": \"2025-12-10\",\n    \"local\": \"Estádio Maracanã\",\n    \"timeCasa\": \"101\",\n    \"timeVisitante\": \"102\",\n    \"placarCasa\": 2,\n    \"placarVisitante\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/partidas/{{partidaId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["partidas", "{{partidaId}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Excluir Partida",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/partidas/{{partidaId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["partidas", "{{partidaId}}"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Técnicos",
+      "item": [
+        {
+          "name": "Listar Todos os Técnicos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/tecnicos",
+              "host": ["{{baseUrl}}"],
+              "path": ["tecnicos"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar Técnico por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/tecnicos/{{tecnicoId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["tecnicos", "{{tecnicoId}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Criar Novo Técnico",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nome\": \"Fernando Diniz\",\n    \"nacionalidade\": \"Brasileira\",\n    \"experienciaAnos\": 15,\n    \"timeAtual\": \"\",\n    \"encerramentoContrato\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/tecnicos",
+              "host": ["{{baseUrl}}"],
+              "path": ["tecnicos"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Atualizar Técnico",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nome\": \"Fernando Diniz\",\n    \"nacionalidade\": \"Brasileira\",\n    \"experienciaAnos\": 16,\n    \"timeAtual\": \"101\",\n    \"encerramentoContrato\": \"2026\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/tecnicos/{{tecnicoId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["tecnicos", "{{tecnicoId}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Excluir Técnico",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/tecnicos/{{tecnicoId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["tecnicos", "{{tecnicoId}}"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Campeonatos",
+      "item": [
+        {
+          "name": "Listar Todos os Campeonatos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/campeonatos",
+              "host": ["{{baseUrl}}"],
+              "path": ["campeonatos"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar Campeonato por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/campeonatos/{{campeonatoId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["campeonatos", "{{campeonatoId}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Criar Novo Campeonato",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nome\": \"Copa do Brasil\",\n    \"ano\": \"2025\",\n    \"pais\": \"Brasil\",\n    \"timesParticipantes\": [\"101\", \"102\"]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/campeonatos",
+              "host": ["{{baseUrl}}"],
+              "path": ["campeonatos"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Atualizar Campeonato",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nome\": \"Copa do Brasil\",\n    \"ano\": \"2025\",\n    \"pais\": \"Brasil\",\n    \"timesParticipantes\": [\"101\", \"102\"],\n    \"campeao\": \"101\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/campeonatos/{{campeonatoId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["campeonatos", "{{campeonatoId}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Excluir Campeonato",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/campeonatos/{{campeonatoId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["campeonatos", "{{campeonatoId}}"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "string"
+    },
+    {
+      "key": "timeId",
+      "value": "101",
+      "type": "string"
+    },
+    {
+      "key": "jogadorId",
+      "value": "401",
+      "type": "string"
+    },
+    {
+      "key": "partidaId",
+      "value": "501",
+      "type": "string"
+    },
+    {
+      "key": "tecnicoId",
+      "value": "301",
+      "type": "string"
+    },
+    {
+      "key": "campeonatoId",
+      "value": "1",
+      "type": "string"
+    }
+  ]
+}
