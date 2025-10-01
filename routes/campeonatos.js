@@ -1,24 +1,30 @@
 const express = require("express");
 const router = express.Router();
 
-let ListaDeCampeonatos = [
-  {
-    id: "1",
-    nome: "Brasileirão Série A",
-    ano: "2023",
-    pais: "Brasil",
-    timesParticipantes: ["101", "102", "103"],
-    campeao: "102",
-  },
-  {
-    id: "2",
-    nome: "Premier League",
-    ano: "2023",
-    pais: "Inglaterra",
-    timesParticipantes: ["201", "202"],
-    campeao: "",
-  },
-];
+const { ListaDeTimes } = require("./times");
+
+let ListaDeCampeonatos = [];
+
+if (ListaDeTimes && ListaDeTimes.length >= 2) {
+  ListaDeCampeonatos = [
+    {
+      id: "1",
+      nome: "Brasileirão Série A",
+      ano: "2025",
+      pais: "Brasil",
+      timesParticipantes: ListaDeTimes.map((time) => time.id),
+      campeao: ListaDeTimes[1].id,
+    },
+    {
+      id: "2",
+      nome: "Premier League",
+      ano: "2025",
+      pais: "Inglaterra",
+      timesParticipantes: [],
+      campeao: "",
+    },
+  ];
+}
 
 router.post("/campeonatos", (req, res, next) => {
   const { nome, ano, pais, timesParticipantes } = req.body;
@@ -33,10 +39,22 @@ router.post("/campeonatos", (req, res, next) => {
     (c) => c.nome.toLowerCase() === nome.toLowerCase() && c.ano === ano
   );
   if (campeonatoExistente) {
-    // 409 conflict
     return res
       .status(409)
       .json({ error: "Este campeonato já está cadastrado para este ano!" });
+  }
+
+  const participantes = Array.isArray(timesParticipantes)
+    ? timesParticipantes
+    : [];
+  const todosOsTimesExistem = participantes.every((timeId) =>
+    ListaDeTimes.some((time) => time.id === timeId)
+  );
+  if (!todosOsTimesExistem) {
+    return res.status(404).json({
+      error:
+        "Um ou mais IDs de times em 'timesParticipantes' não foram encontrados.",
+    });
   }
 
   const novoCampeonato = {
@@ -44,9 +62,7 @@ router.post("/campeonatos", (req, res, next) => {
     nome,
     ano,
     pais,
-    timesParticipantes: Array.isArray(timesParticipantes)
-      ? timesParticipantes
-      : [],
+    timesParticipantes: participantes,
     campeao: "",
   };
 
@@ -87,6 +103,7 @@ router.put("/campeonatos/:id", (req, res, next) => {
   if (campeonatoIndex === -1) {
     return res.status(404).json({ error: "Campeonato não encontrado!" });
   }
+
   const conflitoExistente = ListaDeCampeonatos.find(
     (c) =>
       c.nome.toLowerCase() === nome.toLowerCase() &&
@@ -97,6 +114,16 @@ router.put("/campeonatos/:id", (req, res, next) => {
     return res
       .status(409)
       .json({ error: "Já existe outro campeonato com este nome e ano!" });
+  }
+
+  const todosOsTimesExistem = timesParticipantes.every((timeId) =>
+    ListaDeTimes.some((time) => time.id === timeId)
+  );
+  if (!todosOsTimesExistem) {
+    return res.status(404).json({
+      error:
+        "Um ou mais IDs de times em 'timesParticipantes' não foram encontrados.",
+    });
   }
 
   if (campeao && !timesParticipantes.includes(campeao)) {
