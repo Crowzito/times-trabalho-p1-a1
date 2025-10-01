@@ -3,26 +3,30 @@ const router = express.Router();
 
 const { ListaDeTimes } = require("./times");
 
-let ListaDePartidas = [
-  {
-    id: "501",
-    data: "2025-10-26",
-    local: "Estádio Maracanã",
-    timeCasa: "101",
-    timeVisitante: "102",
-    placarCasa: 2,
-    placarVisitante: 2,
-  },
-  {
-    id: "502",
-    data: "2025-11-02",
-    local: "Allianz Parque",
-    timeCasa: "102",
-    timeVisitante: "101",
-    placarCasa: 0,
-    placarVisitante: 0,
-  },
-];
+let ListaDePartidas = [];
+
+if (ListaDeTimes && ListaDeTimes.length >= 2) {
+  ListaDePartidas = [
+    {
+      id: "501",
+      data: "2025-10-26",
+      local: ListaDeTimes[0].estadio,
+      timeCasa: ListaDeTimes[0].id,
+      timeVisitante: ListaDeTimes[1].id,
+      placarCasa: 0,
+      placarVisitante: 0,
+    },
+    {
+      id: "502",
+      data: "2025-11-02",
+      local: ListaDeTimes[1].estadio,
+      timeCasa: ListaDeTimes[1].id,
+      timeVisitante: ListaDeTimes[0].id,
+      placarCasa: 0,
+      placarVisitante: 0,
+    },
+  ];
+}
 
 router.post("/partidas", (req, res, next) => {
   let { data, local, timeCasa, timeVisitante, placarCasa, placarVisitante } =
