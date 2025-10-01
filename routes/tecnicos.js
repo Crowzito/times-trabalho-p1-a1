@@ -25,8 +25,8 @@ if (ListaDeTimes && ListaDeTimes.length >= 2) {
     },
     {
       id: "303",
-      nome: "Carlo Ancelotti",
-      nacionalidade: "Italiana",
+      nome: "Phelipe Coutinho",
+      nacionalidade: "Brasileira",
       experienciaAnos: 28,
       timeAtual: "",
       encerramentoContrato: "",
