@@ -1,68 +1,165 @@
 const express = require("express");
 const router = express.Router();
 
-let times = []; 
-let currentId = 1; 
+let ListaDeTimes = [
+  {
+    id: "101",
+    nome: "Flamengo",
+    anoFundacao: "1895",
+    cidadeSede: "Rio de Janeiro",
+    estadio: "Maracanã",
+    titulosImportantes: [
+      "Copa Libertadores",
+      "Mundial de Clubes",
+      "Campeonato Brasileiro",
+    ],
+  },
+  {
+    id: "102",
+    nome: "Palmeiras",
+    anoFundacao: "1914",
+    cidadeSede: "São Paulo",
+    estadio: "Allianz Parque",
+    titulosImportantes: ["Copa Libertadores", "Campeonato Brasileiro"],
+  },
+];
 
+router.post("/times", (req, res, next) => {
+  const { nome, anoFundacao, cidadeSede, estadio, titulosImportantes } =
+    req.body;
 
-router.post("/times", (req, res) => {
-  const { nome, anoFundacao, cidadeSede, estadio, titulosImportantes } = req.body;
-
-  
   if (!nome || !anoFundacao || !cidadeSede || !estadio) {
-    return res.status(400).json({ error: "Campos obrigatórios estão faltando" });
+    return res.status(400).json({
+      error:
+        "Os campos nome, anoFundacao, cidadeSede e estadio são obrigatórios!",
+    });
+  }
+
+  if (!/^\d{4}$/.test(anoFundacao)) {
+    return res
+      .status(400)
+      .json({ error: "O campo anoFundacao deve ser um ano com 4 dígitos." });
+  }
+
+  const timeExistente = ListaDeTimes.find(
+    (t) => t.nome.toLowerCase() === nome.toLowerCase()
+  );
+  if (timeExistente) {
+    return res
+      .status(409)
+      .json({ error: "Um time com este nome já está cadastrado!" });
+  }
+
+  let titulos = [];
+  if (Array.isArray(titulosImportantes)) {
+    titulos = titulosImportantes;
+  } else if (
+    typeof titulosImportantes === "string" &&
+    titulosImportantes.length > 0
+  ) {
+    titulos = [titulosImportantes];
   }
 
   const novoTime = {
-    id: currentId++,
+    id: String(Date.now()),
     nome,
     anoFundacao,
     cidadeSede,
     estadio,
-    titulosImportantes: titulosImportantes || []
+    titulosImportantes: titulos,
   };
 
-  times.push(novoTime);
-  res.status(201).json(novoTime);
+  ListaDeTimes.push(novoTime);
+  res
+    .status(201)
+    .json({ message: "Time cadastrado com sucesso!", time: novoTime });
 });
 
-router.get("/times", (req, res) => {
-  res.json(times);
+router.get("/times", (req, res, next) => {
+  res.status(200).json(ListaDeTimes);
 });
 
-router.get("/times/:id", (req, res) => {
-  const time = times.find(t => t.id === parseInt(req.params.id));
-  if (!time) {
-    return res.status(404).json({ error: "Time não encontrado" });
-  }
-  res.json(time);
-});
-
-router.put("/times/:id", (req, res) => {
-  const { nome, anoFundacao, cidadeSede, estadio, titulosImportantes } = req.body;
-  const time = times.find(t => t.id === parseInt(req.params.id));
+router.get("/times/:id", (req, res, next) => {
+  const { id } = req.params;
+  const time = ListaDeTimes.find((t) => t.id === id);
 
   if (!time) {
-    return res.status(404).json({ error: "Time não encontrado" });
+    return res.status(404).json({ error: "Time não encontrado!" });
   }
 
-  if (nome) time.nome = nome;
-  if (anoFundacao) time.anoFundacao = anoFundacao;
-  if (cidadeSede) time.cidadeSede = cidadeSede;
-  if (estadio) time.estadio = estadio;
-  if (titulosImportantes) time.titulosImportantes = titulosImportantes;
-
-  res.json(time);
+  res.status(200).json(time);
 });
 
-router.delete("/times/:id", (req, res) => {
-  const index = times.findIndex(t => t.id === parseInt(req.params.id));
-  if (index === -1) {
-    return res.status(404).json({ error: "Time não encontrado" });
+router.put("/times/:id", (req, res, next) => {
+  const { id } = req.params;
+  const { nome, anoFundacao, cidadeSede, estadio, titulosImportantes } =
+    req.body;
+
+  if (!nome || !anoFundacao || !cidadeSede || !estadio) {
+    return res.status(400).json({
+      error:
+        "Os campos nome, anoFundacao, cidadeSede e estadio são obrigatórios!",
+    });
   }
 
-  const [removido] = times.splice(index, 1);
-  res.json(removido);
+  if (!/^\d{4}$/.test(anoFundacao)) {
+    return res
+      .status(400)
+      .json({ error: "O campo anoFundacao deve ser um ano com 4 dígitos." });
+  }
+
+  const timeIndex = ListaDeTimes.findIndex((t) => t.id === id);
+  if (timeIndex === -1) {
+    return res.status(404).json({ error: "Time não encontrado!" });
+  }
+
+  const conflitoExistente = ListaDeTimes.find(
+    (t) => t.nome.toLowerCase() === nome.toLowerCase() && t.id !== id
+  );
+  if (conflitoExistente) {
+    return res
+      .status(409)
+      .json({ error: "Já existe outro time com este nome!" });
+  }
+
+  let titulos = [];
+  if (Array.isArray(titulosImportantes)) {
+    titulos = titulosImportantes;
+  } else if (
+    typeof titulosImportantes === "string" &&
+    titulosImportantes.length > 0
+  ) {
+    titulos = [titulosImportantes];
+  }
+
+  const timeAtualizado = {
+    id,
+    nome,
+    anoFundacao,
+    cidadeSede,
+    estadio,
+    titulosImportantes: titulos,
+  };
+  ListaDeTimes[timeIndex] = timeAtualizado;
+
+  res
+    .status(200)
+    .json({ message: "Time atualizado com sucesso!", time: timeAtualizado });
+});
+
+router.delete("/times/:id", (req, res, next) => {
+  const { id } = req.params;
+
+  const timeIndex = ListaDeTimes.findIndex((t) => t.id === id);
+
+  if (timeIndex === -1) {
+    return res.status(404).json({ error: "Time não encontrado!" });
+  }
+
+  ListaDeTimes.splice(timeIndex, 1);
+
+  // 204 no content
+  res.status(204).send();
 });
 
 module.exports = router;
