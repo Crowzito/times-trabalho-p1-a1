@@ -16,13 +16,13 @@ const Campeonatos = require("./routes/campeonatos");
 const Jogadores = require("./routes/jogadores");
 const Partidas = require("./routes/partidas");
 const Tecnicos = require("./routes/tecnicos");
-const Times = require("./routes/times");
+const timesRouter = require("./routes/times");
 
 app.use(Campeonatos);
 app.use(Jogadores);
 app.use(Partidas);
 app.use(Tecnicos);
-app.use(Times);
+app.use(timesRouter);
 
 app.listen(3000, () => {
   console.log("Server running on port: http://localhost:3000");

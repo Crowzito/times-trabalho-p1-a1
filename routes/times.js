@@ -162,4 +162,7 @@ router.delete("/times/:id", (req, res, next) => {
   res.status(204).send();
 });
 
-module.exports = router;
+module.exports = {
+  timesRouter: router,
+  ListaDeTimes,
+};
