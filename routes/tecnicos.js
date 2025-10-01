@@ -3,32 +3,36 @@ const router = express.Router();
 
 const { ListaDeTimes } = require("./times");
 
-let ListaDeTecnicos = [
-  {
-    id: "301",
-    nome: "Abel Ferreira",
-    nacionalidade: "Portuguesa",
-    experienciaAnos: 12,
-    timeAtual: "102",
-    encerramentoContrato: "2025",
-  },
-  {
-    id: "302",
-    nome: "Tite",
-    nacionalidade: "Brasileira",
-    experienciaAnos: 33,
-    timeAtual: "101",
-    encerramentoContrato: "2024",
-  },
-  {
-    id: "303",
-    nome: "Carlo Ancelotti",
-    nacionalidade: "Italiana",
-    experienciaAnos: 28,
-    timeAtual: "",
-    encerramentoContrato: "",
-  },
-];
+let ListaDeTecnicos = [];
+
+if (ListaDeTimes && ListaDeTimes.length >= 2) {
+  ListaDeTecnicos = [
+    {
+      id: "301",
+      nome: "Abel Ferreira",
+      nacionalidade: "Portuguesa",
+      experienciaAnos: 12,
+      timeAtual: ListaDeTimes[1].id,
+      encerramentoContrato: "2027",
+    },
+    {
+      id: "302",
+      nome: "Tite",
+      nacionalidade: "Brasileira",
+      experienciaAnos: 33,
+      timeAtual: ListaDeTimes[0].id,
+      encerramentoContrato: "2026",
+    },
+    {
+      id: "303",
+      nome: "Carlo Ancelotti",
+      nacionalidade: "Italiana",
+      experienciaAnos: 28,
+      timeAtual: "",
+      encerramentoContrato: "",
+    },
+  ];
+}
 
 router.post("/tecnicos", (req, res, next) => {
   const {
