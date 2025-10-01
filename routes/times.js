@@ -12,6 +12,7 @@ let ListaDeTimes = [
       "Copa Libertadores",
       "Mundial de Clubes",
       "Campeonato Brasileiro",
+      "Copa Intercontinental",
     ],
   },
   {
@@ -20,7 +21,7 @@ let ListaDeTimes = [
     anoFundacao: "1914",
     cidadeSede: "São Paulo",
     estadio: "Allianz Parque",
-    titulosImportantes: ["Copa Libertadores", "Campeonato Brasileiro"],
+    titulosImportantes: ["Copa Libertadores", "Campeonato Brasileiro","Supercopa do Brasil"],
   },
 ];
 
