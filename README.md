@@ -10,10 +10,10 @@ Este trabalho foi desenvolvido para a disciplina de Construção de Backend.
 
 | Aluno(a) | GitHub | Funcionalidade |
 | :--- | :--- | :--- |
-| Álvaro Matheus Alves da Silva | [alvarotheuszin](https://www.google.com/search?q=https://github.com/alvarotheuszin) | Criação e implementação da funcionalidade de **Jogadores** |
-| Giovanna Martins Soares | [blackinha](https://www.google.com/search?q=https://github.com/blackinha) | Criação e implementação da funcionalidade de **Times** |
-| João Victor Pereira de Souza | [JoaooVictor27](https://www.google.com/search?q=https://github.com/JoaooVictor27) | Criação e implementação da funcionalidade de **Campeonatos** |
-| Maria Fernanda Santos Lima de Almeida| [fe705](https://www.google.com/search?q=https://github.com/fe705) | Criação e implementação da funcionalidade de **Técnicos** |
+| Álvaro Matheus Alves da Silva | [alvarotheuszin](https://github.com/alvarotheuszin) | Criação e implementação da funcionalidade de **Jogadores** |
+| Giovanna Martins Soares | [blackinha](https://github.com/Blackinha) | Criação e implementação da funcionalidade de **Times** |
+| João Victor Pereira de Souza | [JoaooVictor27](https://github.com/JoaooVictor27) | Criação e implementação da funcionalidade de **Campeonatos** |
+| Maria Fernanda Santos Lima de Almeida| [fe705](https://github.com/fe705) | Criação e implementação da funcionalidade de **Técnicos** |
 | Pedro Victor Lopes de Souza | [Crowzito](https://github.com/Crowzito) | Criação e implementação da funcionalidade de **Partidas** |
 
 ## 🤝 CONTRIBUTING
