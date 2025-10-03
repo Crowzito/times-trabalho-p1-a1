@@ -20,7 +20,7 @@ Este trabalho foi desenvolvido para a disciplina de Construção de Backend.
 
 Para detalhes sobre como contribuir com este projeto, seguir nosso fluxo de trabalho e padrões de commit, por favor, leia nosso guia de contribuição.
 
-➡️ **[CONTRIBUTING.md](https://www.google.com/search?q=CONTRIBUTING.md)**
+➡️ **[CONTRIBUTING.md](CONTRIBUTING.md)**
 
 ## 🚀 Como Rodar o Projeto
 
